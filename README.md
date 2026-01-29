@@ -17,32 +17,45 @@ In order to get this project running please download the code using the git clon
 
 # Dataset
 
-Source: Bank Marketing Dataset
-
-Target Variable: y (Subscription: yes/no)
-
-Feature Types:
-
-Categorical: job, marital status, education, contact, month, housing, loan
-
-Continuous: age, campaign, duration, euribor3m, emp.var.rate, cons.price.idx
-
+  - Source: Bank Marketing Dataset
+  - Target Variable: y (Subscription: yes/no)
+  - Feature Types:
+       - Categorical: job, marital status, education, contact, month, housing, loan
+       - Continuous: age, campaign, duration, euribor3m, emp.var.rate, cons.price.idx
 
 ## Results
 
+Confusion Matrix for KNN classifier
 
-- Key Insights:
+<img width="437" height="389" alt="image" src="https://github.com/user-attachments/assets/a13595b6-464c-4b51-969e-ba60b2960230" />
+
+Model Training time and accuracy
+
+| Model | Train_Time | Train_Accuracy | Test_Accuracy |
+|---|---|---|---|
+| Logistic Regression | 0.834787 | 0.901123 | 0.897305 |
+| KNN	| 0.016028 | 0.913505	| 0.888080 |
+| Decision Tree | 0.396105 | 0.995357	| 0.838917 |
+| SVM	| 185.017094	| 0.905250	| 0.896941 |
+
 
 
 ## Conclusion
 
+- Logistic Regression and SVM achieved the strongest overall performance, with the highest test accuracy (~89.7%) and solid AUC scores.
+- SVM matched Logistic Regression in accuracy but required significantly longer training time, making it less efficient computationally.
+- KNN showed competitive accuracy and minimal training time,
+- Decision Trees exhibited overfitting, with near-perfect training accuracy but noticeably lower test accuracy.
+- The confusion matrix shows that all models perform better at predicting non-subscribers than subscribers, highlighting class imbalance and the need for threshold tuning or class weighting.
+
 ### Learning
 
-- It was fun to work on this assignment, I did learn that building and comparing different machine learning models requires understanding the dataset, applying the concepts which can take time and practice
-- Machine Learning model can initially take time to run if the dataset it huge and we can easily overfit or underfit the model
-- Its easy to get lost and keep track of your machine learning model flow, hence keep track of what you are doing either in a notepad or roughbook
-
+- This was a fun and helpful learning exercise that made it easier to understand how different machine learning models perform on real data.
+- Comparing the models helped show that training time can increase a lot with larger datasets, especially for more complex models like SVM.
+- Overall, the exercise helped build confidence in evaluating models using multiple metrics and understanding that model selection involves trade-offs, not just accuracy.
+  
 ## Next Steps and Recommendations
 
- - We can explore more scenarios to learn meaningful insights from the data
+ - We can explore more scenarios to learn meaningful insights
+ - Relying solely on accuracy can be misleading due to class imbalance; evaluating precision, recall, and F1-score provides a more complete and reliable assessment of model performance, particularly for identifying subscribed customers.
 
